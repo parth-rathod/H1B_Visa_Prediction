@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    H1-B Visa Prediction
+{% endblock %}
+
+
+
+
+{% block content %}
+  <br><br>
+  <h1 align="center" >H1-B Visa Prediction</h1>
+  <br><br>
+
+  <form action="{{ url_for('handle_data') }}" method="post">
+    <div class="content">
+
+      <label for="states">State:</label>
+      <select name="state" id="S">
+        {% for state in states %}
+          <option value= "{{state}}" SELECTED>{{state}}</option>"
+        {% endfor %}
+      </select>
+      <br>
+
+      <label for="employer">Employer: </label>
+      <input   type="text" id="E" name="E" >
+      <br>
+
+      <label for="soc">SOC Name: </label>
+        <input   type="text" id="SOC" name="SOC" >
+      <br>
+
+      <label for="job_title">Job Title: </label>
+       <input   type="text" id="JT" name="JT">
+      <br>
+
+      <label for="salary">Annual Income:</label>
+      <select name="income" id="I" >
+        <option value="HIGH">Between 90000 to 150000</option>
+        <option value="LOW">Between 50000 to 70000</option>
+        <option value="MEDIUM">Between 70000 to 90000</option>
+        <option value="VERY HIGH">Above 150000</option>
+        <option value="VERY LOW">Less than 50000</option>
+      </select>
+      <br>
+
+
+
+      <br><br>
+      <label for "submit"></label>
+      <input type="submit" value="Predict" >
+    </div>
+  </form>
+
+
+
+{% endblock %}
